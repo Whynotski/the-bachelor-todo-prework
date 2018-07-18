@@ -49,15 +49,19 @@ def get_average_age_for_season(data, season)
 array =[]
   data.each do |series, info|
     if series == season
-binding.pry
+
   info.each do |contestant|
-     array << contestant["age"].to_i
+
+
+     array << contestant["age"].to_f
+
   end
+
 end
   end
-    sum_age = array.inject{|sum, element| sum + element}.to_i
+    sum_age = array.inject{|sum, element| sum + element}
     denominator = array.size
     ave_age = sum_age/denominator
-    binding.pry
-    return ave_age
+
+    return ave_age.round
 end
